@@ -4,4 +4,4 @@
 - [[#description][Description:]]
 
 * Description:
-This is my private configuration file of doom emacs.
+This is my private configuration file of [[https://github.com/doomemacs/doomemacs][doom emacs]].
