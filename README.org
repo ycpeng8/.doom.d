@@ -1,0 +1,7 @@
+#+title: Doom Emacs Configuration
+
+* Table of Contents :toc:
+- [[#description][Description:]]
+
+* Description:
+This is my private configuration file of doom emacs.
