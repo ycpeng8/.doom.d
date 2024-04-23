@@ -14,6 +14,8 @@
 
 (setq org-directory "~/org/")
 
+(setq confirm-kill-emacs nil)
+
 (setq display-line-numbers-type 'relative)
 
 (setq doom-font (font-spec :family "MesloLGS Nerd Font Mono" :size 14))
