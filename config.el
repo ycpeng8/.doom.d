@@ -3,6 +3,8 @@
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
+(add-to-list 'default-frame-alist '(alpha . 80))
+
 (setq doom-theme 'doom-challenger-deep)
 
 (require 'org-bullets)
@@ -18,4 +20,4 @@
 
 (setq display-line-numbers-type 'relative)
 
-(setq doom-font (font-spec :family "MesloLGS Nerd Font Mono" :size 14))
+(setq doom-font (font-spec :family "Iosevka Nerd Font Mono" :size 14))
