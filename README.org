@@ -31,7 +31,7 @@ There are two ways to load a theme. Both assume the theme is installed and
 available. You can either set `doom-theme' or manually load a theme with the
 `load-theme' function.
 #+begin_src emacs-lisp
-(setq doom-theme 'doom-zenburn)
+(setq doom-theme 'doom-challenger-deep)
 #+end_src
 
 *** Enable org-bullets mode
@@ -114,7 +114,7 @@ To get information about any of these functions/macros, move the cursor over
 the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
 This will open documentation for it, including demos of how they are used.
 Alternatively, use `C-h o' to look up a symbol (functions, variables, faces,
-etc).
+
 
 You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 they are implemented.
