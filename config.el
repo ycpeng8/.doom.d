@@ -3,7 +3,7 @@
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-(add-to-list 'default-frame-alist '(alpha . 80))
+(add-to-list 'default-frame-alist '(alpha . 90))
 
 (setq doom-theme 'doom-challenger-deep)
 
