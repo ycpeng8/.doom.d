@@ -8,9 +8,6 @@
 
 (setq doom-theme 'doom-challenger-deep)
 
-(require 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-
 (unless (equal "Battery status not available"
                (battery))
   (display-battery-mode 1))
@@ -22,3 +19,10 @@
 (setq display-line-numbers-type 'relative)
 
 (setq doom-font (font-spec :family "Iosevka Nerd Font Mono" :size 14))
+
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+(use-package dirvish
+  :init
+  (dirvish-override-dired-mode))

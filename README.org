@@ -7,6 +7,7 @@
 - [[#private-config][Private Config]]
   - [[#global-functional-settings][Global Functional Settings]]
   - [[#editor-zone-settings][Editor Zone Settings]]
+  - [[#3rd-party-packages-settings][3rd Party Packages Settings]]
 - [[#additional-tips-from-doom-emacs][Additional Tips from Doom Emacs]]
 
 * Description
@@ -38,12 +39,6 @@ available. You can either set `doom-theme' or manually load a theme with the
 `load-theme' function.
 #+begin_src emacs-lisp
 (setq doom-theme 'doom-challenger-deep)
-#+end_src
-
-*** Enable org-bullets mode
-#+begin_src emacs-lisp
-(require 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 #+end_src
 
 *** Display Battery
@@ -91,6 +86,20 @@ If you or Emacs can't find your font, use 'M-x describe-font' to look them
 up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
 refresh your font settings. If Emacs still can't find your font, it likely
 wasn't installed correctly. Font issues are rarely Doom issues!
+
+** 3rd Party Packages Settings
+*** Enable [[https://github.com/sabof/org-bullets][org-bullets]] mode
+#+begin_src emacs-lisp
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+#+end_src
+
+*** Enable [[https://github.com/alexluigit/dirvish][dirvish]]
+#+begin_src emacs-lisp
+(use-package dirvish
+  :init
+  (dirvish-override-dired-mode))
+#+end_src
 
 * Additional Tips from Doom Emacs
 Whenever you reconfigure a package, make sure to wrap your config in an
