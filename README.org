@@ -28,7 +28,8 @@ Some functionality uses this to identify you, e.g. GPG configuration, email clie
 
 *** Set screen transparency
 #+begin_src emacs-lisp
-(add-to-list 'default-frame-alist '(alpha . 90))
+(set-frame-parameter nil 'alpha 90)
+(add-to-list 'default-frame-alist '(alpha. 90))
 #+end_src
 
 *** Set theme
