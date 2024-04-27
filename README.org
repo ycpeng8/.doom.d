@@ -73,9 +73,7 @@ Doom exposes five (optional) variables for controlling fonts in Doom:
 doom-font -- the primary font to use
 doom-variable-pitch-font -- a non-monospace font (where applicable)
 doom-big-font -- used for 'doom-big-font-mode'; use this for presentations or streaming.
-doom-symbol-font -- for symbols
-doom-serif-font -- for the 'fixed-pitch-serif' face
-
+doom-symbol-font -- for symbols doom-serif-font -- for the 'fixed-pitch-serif' face
 See 'C-h v doom-font' for documentation and more examples of what they
 accept.
 #+begin_src emacs-lisp
@@ -96,9 +94,15 @@ wasn't installed correctly. Font issues are rarely Doom issues!
 
 *** Enable [[https://github.com/alexluigit/dirvish][dirvish]]
 #+begin_src emacs-lisp
-(use-package dirvish
-  :init
-  (dirvish-override-dired-mode))
+;; (use-package dirvish
+;; :init
+;; (dirvish-override-dired-mode)
+;; :config
+;; (setq dirvish-hide-details nil)
+;; (setq dirvish-attributes
+;;       '(vc-state subtree-state file-size))
+;; (setq dirvish-preview-dispatchers
+;;     (cl-substitute 'pdf-preface 'pdf dirvish-preview-dispatchers)))
 #+end_src
 
 * Additional Tips from Doom Emacs

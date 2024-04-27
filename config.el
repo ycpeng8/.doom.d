@@ -23,6 +23,12 @@
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
-(use-package dirvish
-  :init
-  (dirvish-override-dired-mode))
+;; (use-package dirvish
+;; :init
+;; (dirvish-override-dired-mode)
+;; :config
+;; (setq dirvish-hide-details nil)
+;; (setq dirvish-attributes
+;;       '(vc-state subtree-state file-size))
+;; (setq dirvish-preview-dispatchers
+;;     (cl-substitute 'pdf-preface 'pdf dirvish-preview-dispatchers)))
