@@ -51,5 +51,5 @@
 
 ;; (package! catppuccin-theme)
 (package! org-bullets)
-;; (package! dirvish)
-;; (package! all-the-icons)
+(package! dirvish)
+(package! all-the-icons)

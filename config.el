@@ -23,12 +23,15 @@
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
-;; (use-package dirvish
-;; :init
-;; (dirvish-override-dired-mode)
-;; :config
-;; (setq dirvish-hide-details nil)
-;; (setq dirvish-attributes
-;;       '(vc-state subtree-state file-size))
-;; (setq dirvish-preview-dispatchers
-;;     (cl-substitute 'pdf-preface 'pdf dirvish-preview-dispatchers)))
+(use-package dirvish
+  :init
+  (dirvish-override-dired-mode)
+  :config
+  (setq dirvish-hide-details nil)
+  (setq dirvish-attributes
+        '(vc-state all-the-icons subtree-state file-size))
+  (setq dirvish-preview-dispatchers
+      (cl-substitute 'pdf-preface 'pdf dirvish-preview-dispatchers)))
+
+(use-package all-the-icons
+  :if (display-graphic-p))

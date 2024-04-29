@@ -94,15 +94,21 @@ wasn't installed correctly. Font issues are rarely Doom issues!
 
 *** Enable [[https://github.com/alexluigit/dirvish][dirvish]]
 #+begin_src emacs-lisp
-;; (use-package dirvish
-;; :init
-;; (dirvish-override-dired-mode)
-;; :config
-;; (setq dirvish-hide-details nil)
-;; (setq dirvish-attributes
-;;       '(vc-state subtree-state file-size))
-;; (setq dirvish-preview-dispatchers
-;;     (cl-substitute 'pdf-preface 'pdf dirvish-preview-dispatchers)))
+(use-package dirvish
+  :init
+  (dirvish-override-dired-mode)
+  :config
+  (setq dirvish-hide-details nil)
+  (setq dirvish-attributes
+        '(vc-state all-the-icons subtree-state file-size))
+  (setq dirvish-preview-dispatchers
+      (cl-substitute 'pdf-preface 'pdf dirvish-preview-dispatchers)))
+#+end_src
+
+*** Enable [[https://github.com/domtronn/all-the-icons.el][all-the-icons]]
+#+begin_src emacs-lisp
+(use-package all-the-icons
+  :if (display-graphic-p))
 #+end_src
 
 * Additional Tips from Doom Emacs
