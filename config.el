@@ -12,7 +12,7 @@
                (battery))
   (display-battery-mode 1))
 
-(setq org-directory "~/org/")
+(setq org-directory "~/")
 
 (setq confirm-kill-emacs nil)
 
@@ -34,4 +34,12 @@
       (cl-substitute 'pdf-preface 'pdf dirvish-preview-dispatchers)))
 
 (use-package all-the-icons
-  :if (display-graphic-p))
+  :if
+  (display-graphic-p)
+  :config
+  (set-fontset-font t 'unicode (font-spec :family "all-the-icons") nil 'append)
+  (set-fontset-font t 'unicode (font-spec :family "file-icons") nil 'append)
+  (set-fontset-font t 'unicode (font-spec :family "Material Icons") nil 'append)
+  (set-fontset-font t 'unicode (font-spec :family "github-octicons") nil 'append)
+  (set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'append)
+  (set-fontset-font t 'unicode (font-spec :family "Weather Icons") nil 'append))
