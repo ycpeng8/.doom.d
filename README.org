@@ -29,8 +29,8 @@ Some functionality uses this to identify you, e.g. GPG configuration, email clie
 
 *** Set screen transparency
 #+begin_src emacs-lisp
-(set-frame-parameter nil 'alpha 90)
-(add-to-list 'default-frame-alist '(alpha. 90))
+;;(set-frame-parameter nil 'alpha 90)
+;;(add-to-list 'default-frame-alist '(alpha. 90))
 #+end_src
 
 *** Set theme
@@ -38,7 +38,7 @@ There are two ways to load a theme. Both assume the theme is installed and
 available. You can either set `doom-theme' or manually load a theme with the
 `load-theme' function.
 #+begin_src emacs-lisp
-(setq doom-theme 'doom-challenger-deep)
+(setq doom-theme 'doom-monokai-classic)
 #+end_src
 
 *** Display Battery
@@ -95,28 +95,100 @@ wasn't installed correctly. Font issues are rarely Doom issues!
 *** Enable [[https://github.com/alexluigit/dirvish][dirvish]]
 #+begin_src emacs-lisp
 (use-package dirvish
-  :init
-  (dirvish-override-dired-mode)
-  :config
-  (setq dirvish-hide-details nil)
-  (setq dirvish-attributes
-        '(vc-state all-the-icons subtree-state file-size))
-  (setq dirvish-preview-dispatchers
-      (cl-substitute 'pdf-preface 'pdf dirvish-preview-dispatchers)))
+ :init
+ (dirvish-override-dired-mode)
+ :config
+ (setq dirvish-mode-line-format
+        '(:left (sort symlink) :right (omit yank index)))
+ (setq dirvish-mode-line-height 10)
+ (setq dirvish-hide-details nil)
+ (setq dirvish-attributes
+       '(vc-state nerd-icons subtree-state file-size file-time))
+ (setq dirvish-preview-dispatchers
+     (cl-substitute 'pdf-preface 'pdf dirvish-preview-dispatchers))
+ (setq dirvish-subtree-state-style 'nerd)
+ (setq delete-by-moving-to-trash t)
+ (setq dirvish-path-separators (list
+                                (format "  %s " (nerd-icons-codicon "nf-cod-home"))
+                                (format "  %s " (nerd-icons-codicon "nf-cod-root_folder"))
+                                (format " %s " (nerd-icons-faicon "nf-fa-angle_right"))))
+ (setq dired-listing-switches
+       "-l --almost-all --human-readable --group-directories-first --no-group")
+ (dirvish-peek-mode) ; Preview files in minibuffer
+ (dirvish-side-follow-mode)) ; similar to `treemacs-follow-mode'
 #+end_src
 
 *** Enable [[https://github.com/domtronn/all-the-icons.el][all-the-icons]]
 #+begin_src emacs-lisp
-(use-package all-the-icons
-  :if
-  (display-graphic-p)
+;; (use-package all-the-icons
+;;   :if
+;;   (display-graphic-p)
+;;   :config
+;;   (set-fontset-font t 'unicode (font-spec :family "all-the-icons") nil 'append)
+;;   (set-fontset-font t 'unicode (font-spec :family "file-icons") nil 'append)
+;;   (set-fontset-font t 'unicode (font-spec :family "Material Icons") nil 'append)
+;;   (set-fontset-font t 'unicode (font-spec :family "github-octicons") nil 'append)
+;;   (set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'append)
+;;   (set-fontset-font t 'unicode (font-spec :family "Weather Icons") nil 'append))
+#+end_src
+
+*** Enable [[https://github.com/emacs-dashboard/emacs-dashboard][dashboard]]
+#+begin_src emacs-lisp
+(use-package dashboard
+  :ensure t
   :config
-  (set-fontset-font t 'unicode (font-spec :family "all-the-icons") nil 'append)
-  (set-fontset-font t 'unicode (font-spec :family "file-icons") nil 'append)
-  (set-fontset-font t 'unicode (font-spec :family "Material Icons") nil 'append)
-  (set-fontset-font t 'unicode (font-spec :family "github-octicons") nil 'append)
-  (set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'append)
-  (set-fontset-font t 'unicode (font-spec :family "Weather Icons") nil 'append))
+  (dashboard-setup-startup-hook)
+  (page-break-lines-mode)
+  :custom
+  (dashboard-center-content t)
+  (dashboard-vertically-center-content t)
+  (dashboard-display-icons-p t)
+  (dashboard-icon-type 'nerd-icons)
+  (dashboard-set-heading-icons t)
+;;  (dashboard-startup-banner 'logo)
+  (dashboard-startup-banner "~/.doom.d/assets/ycpeng.txt")
+  (dashboard-set-file-icons t)
+;;  (dashboard-page-separator "\n\f\n")
+  (dashboard-projects-backend 'projectile)
+  (dashboard-items '((recents   . 5)
+                          (bookmarks . 5)
+                          (projects  . 5)
+                          (agenda    . 5)))
+  (dashboard-banner-logo-title "Welcome to ycpeng's Emacs~")
+  (dashboard-footer-messages '("While any text editor can save your files, only Emacs can save your soul.")))
+#+end_src
+
+configure initial-buffer-choice to show Dashboard in frames created with "emacsclient -c"
+#+begin_src emacs-lisp
+(setq initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
+#+end_src
+
+*** Enable [[https://github.com/seagle0128/nerd-icons-ibuffer][nerd-icons-ibuffer]]
+#+begin_src emacs-lisp
+(use-package nerd-icons-ibuffer
+  :ensure t
+  :hook (ibuffer-mode . nerd-icons-ibuffer-mode)
+  :config
+  (setq nerd-icons-ibuffer-icon t)
+  (setq nerd-icons-ibuffer-color-icon t))
+#+end_src
+
+*** Enable [[https://github.com/bbatsov/projectile][projectile]]
+#+begin_src emacs-lisp
+(projectile-mode +1)
+;; Recommended keymap prefix on macOS
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+;; Recommended keymap prefix on Windows/Linux
+;; (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+#+end_src
+
+*** Enable [[https://github.com/purcell/ibuffer-projectile][ibuffer-projectile]]
+#+begin_src emacs-lisp
+(add-hook 'ibuffer-hook
+    (lambda ()
+      (ibuffer-projectile-set-filter-groups)
+      (unless (eq ibuffer-sorting-mode 'alphabetic)
+        (ibuffer-do-sort-by-alphabetic))))
 #+end_src
 
 * Additional Tips from Doom Emacs
