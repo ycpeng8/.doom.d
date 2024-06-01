@@ -38,7 +38,8 @@ There are two ways to load a theme. Both assume the theme is installed and
 available. You can either set `doom-theme' or manually load a theme with the
 `load-theme' function.
 #+begin_src emacs-lisp
-(setq doom-theme 'doom-monokai-classic)
+;; (setq doom-theme 'doom-plain-dark)
+(setq doom-theme 'spacemacs-dark)
 #+end_src
 
 *** Display Battery
@@ -77,7 +78,10 @@ doom-symbol-font -- for symbols doom-serif-font -- for the 'fixed-pitch-serif' f
 See 'C-h v doom-font' for documentation and more examples of what they
 accept.
 #+begin_src emacs-lisp
-(setq doom-font (font-spec :family "Iosevka Nerd Font Mono" :size 14))
+;; (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14))
+;; (setq doom-font (font-spec :family "BigBlueTerm437 Nerd Font Mono" :size 14))
+;; (setq doom-font (font-spec :family "GohuFont uni14 Nerd Font Mono" :size 14))
+(setq doom-font (font-spec :family "MesloLGS Nerd Font Mono" :size 14))
 #+end_src
 
 If you or Emacs can't find your font, use 'M-x describe-font' to look them

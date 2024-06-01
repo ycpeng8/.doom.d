@@ -58,3 +58,4 @@
 (package! page-break-lines)
 (package! projectile)
 (package! ibuffer-projectile)
+(package! spacemacs-theme)

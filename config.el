@@ -6,7 +6,8 @@
 ;;(set-frame-parameter nil 'alpha 90)
 ;;(add-to-list 'default-frame-alist '(alpha. 90))
 
-(setq doom-theme 'doom-monokai-classic)
+;; (setq doom-theme 'doom-plain-dark)
+(setq doom-theme 'spacemacs-dark)
 
 (unless (equal "Battery status not available"
                (battery))
@@ -18,7 +19,10 @@
 
 (setq display-line-numbers-type 'relative)
 
-(setq doom-font (font-spec :family "Iosevka Nerd Font Mono" :size 14))
+;; (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14))
+;; (setq doom-font (font-spec :family "BigBlueTerm437 Nerd Font Mono" :size 14))
+;; (setq doom-font (font-spec :family "GohuFont uni14 Nerd Font Mono" :size 14))
+(setq doom-font (font-spec :family "MesloLGS Nerd Font Mono" :size 14))
 
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
