@@ -19,6 +19,9 @@
 
 (setq display-line-numbers-type 'relative)
 
+(setq-default evil-escape-delay 0.2)
+(setq-default evil-escape-key-sequence "kj")
+
 ;; (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14))
 ;; (setq doom-font (font-spec :family "BigBlueTerm437 Nerd Font Mono" :size 14))
 ;; (setq doom-font (font-spec :family "GohuFont uni14 Nerd Font Mono" :size 14))
