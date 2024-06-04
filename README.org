@@ -90,10 +90,10 @@ refresh your font settings. If Emacs still can't find your font, it likely
 wasn't installed correctly. Font issues are rarely Doom issues!
 
 *** Quick quit Insert mode
-Quickly press 'kj' to quickly quit Insert mode of vim
+Quickly press 'jj' to quickly quit Insert mode of vim
 #+begin_src emacs-lisp
 (setq-default evil-escape-delay 0.2)
-(setq-default evil-escape-key-sequence "kj")
+(setq-default evil-escape-key-sequence "jj")
 #+end_src
 
 ** 3rd Party Packages Settings

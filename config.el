@@ -7,7 +7,7 @@
 ;;(add-to-list 'default-frame-alist '(alpha. 90))
 
 ;; (setq doom-theme 'doom-plain-dark)
-(setq doom-theme 'spacemacs-dark)
+(setq doom-theme 'doom-dracula)
 
 (unless (equal "Battery status not available"
                (battery))
@@ -19,16 +19,18 @@
 
 (setq display-line-numbers-type 'relative)
 
-(setq-default evil-escape-delay 0.2)
-(setq-default evil-escape-key-sequence "kj")
-
 ;; (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14))
 ;; (setq doom-font (font-spec :family "BigBlueTerm437 Nerd Font Mono" :size 14))
 ;; (setq doom-font (font-spec :family "GohuFont uni14 Nerd Font Mono" :size 14))
 (setq doom-font (font-spec :family "MesloLGS Nerd Font Mono" :size 14))
 
+(setq-default evil-escape-delay 0.2)
+(setq-default evil-escape-key-sequence "jj")
+
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+(setq org-hide-emphasis-markers t)
 
 (use-package dirvish
  :init
